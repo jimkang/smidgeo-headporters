@@ -1,0 +1,3 @@
+# attnbot stuff
+15,50,56,26 * * * * cd /var/apps/attnbot && make run-docker-image
+
