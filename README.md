@@ -8,10 +8,12 @@ Teh crontab 4 ALL Smidgeo Web Oporations
 Installation
 ------------
 
-First Docker installed
+First GET Docker
 Then
 
     make install-cron
+
+Each cron cmd in `schedule.cron` does Make to docker from internet!
 
 License
 -------
