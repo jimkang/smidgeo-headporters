@@ -11,3 +11,7 @@ install-cron:
 	crontab schedule.cron
 
 post-receive: sync-worktree-to-git install-cron
+
+run-attnbot:
+	docker run -v $(HOMEDIR)/config:/usr/src/app/config \
+		jkang/attnbot make run-mishear-quote
