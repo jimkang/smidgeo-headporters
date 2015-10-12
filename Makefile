@@ -19,10 +19,14 @@ push-base-image:
 install-cron:
 	crontab schedule.cron
 
-post-receive: sync-worktree-to-git install-cron servers
+post-receive: sync-worktree-to-git install-cron update-images start-servers
 
-servers: run-attnbot-note-taker
+start-servers: run-attnbot-note-taker
 
+update-images: update-attnbot
+
+update-attnbot:
+	docker pull jkang/attnbot
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -40,6 +44,9 @@ run-attnbot-news:
 	$(ATTNBOTBASECMD) make mishear-news
 
 run-attnbot-note-taker:
+	docker rm -f attnbot-note-taker || \
+		echo "attnbot-note-taker did not need removal."
 	docker run -d --restart=always \
+		--name attnbot-note-taker \
 		-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot \
 		node take-a-note-bot.js
