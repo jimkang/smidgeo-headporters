@@ -25,19 +25,21 @@ servers: run-attnbot-note-taker
 
 
 ATTNBOTBASECMD = docker run --rm \
-	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot 
+	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
 
 run-attnbot-quote:
-	$(ATTNBOTBASECMD) make run-mishear-quote
+	$(ATTNBOTBASECMD) make mishear-quote
 
 run-attnbot-popular:
-	$(ATTNBOTBASECMD) make run-mishear-popular
+	$(ATTNBOTBASECMD) make mishear-popular
 
 run-attnbot-fact:
-	$(ATTNBOTBASECMD) make run-mishear-fact
+	$(ATTNBOTBASECMD) make mishear-fact
 
 run-attnbot-news:
-	$(ATTNBOTBASECMD) make run-mishear-news
+	$(ATTNBOTBASECMD) make mishear-news
 
 run-attnbot-note-taker:
-	$(ATTNBOTBASECMD) make run-note-taker
+	docker run -d --restart=always \
+		-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot \
+		node take-a-note-bot.js
