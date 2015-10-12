@@ -2,4 +2,4 @@
 8 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-quote
 38 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-fact
 0 16,19,22 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-popular
-0 */2 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-news
+0 */8 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-news
