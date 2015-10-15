@@ -50,3 +50,6 @@ run-attnbot-note-taker:
 		--name attnbot-note-taker \
 		-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot \
 		node take-a-note-bot.js
+
+run-attnbot-shakespeare:
+	$(ATTNBOTBASECMD) make mishear-shakespeare

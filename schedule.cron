@@ -3,3 +3,4 @@
 # 38 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-fact
 0 16,19,22 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-popular
 0 */8 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-news
+30 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-shakespeare
