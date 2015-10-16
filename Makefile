@@ -53,3 +53,6 @@ run-attnbot-note-taker:
 
 run-attnbot-shakespeare:
 	$(ATTNBOTBASECMD) make mishear-shakespeare
+
+run-attnbot-bible:
+	$(ATTNBOTBASECMD) make mishear-bible

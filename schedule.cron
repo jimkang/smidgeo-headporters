@@ -1,6 +1,7 @@
 # attnbot stuff
-8 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-quote
+8 */2 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-quote
 # 38 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-fact
 0 16,19,22 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-popular
-0 */8 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-news
-30 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-shakespeare
+0 */12 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-news
+0 */4 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-shakespeare
+38 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-bible
