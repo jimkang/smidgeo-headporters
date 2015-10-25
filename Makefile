@@ -23,10 +23,13 @@ post-receive: sync-worktree-to-git install-cron update-images start-servers
 
 start-servers: run-attnbot-note-taker
 
-update-images: update-attnbot
+update-images: update-attnbot update-watching-very-closely
 
 update-attnbot:
 	docker pull jkang/attnbot
+
+update-watching-very-closely:
+	docker pull jkang/watching-very-closely
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -56,3 +59,9 @@ run-attnbot-shakespeare:
 
 run-attnbot-bible:
 	$(ATTNBOTBASECMD) make mishear-bible
+
+run-watching-very-closely:
+	docker run --rm \
+		-v $(HOMEDIR)/configs/watching-very-closely:/usr/src/app/config \
+		jkang/watching-very-closely \
+		make run

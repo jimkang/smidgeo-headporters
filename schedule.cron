@@ -5,3 +5,6 @@
 0 */8 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-news
 0 */6 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-shakespeare
 38 */3 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-bible
+
+# watching-very-closely
+15 */3 * * * cd /var/apps/smidgeo-headporters && make run-watching-very-closely
