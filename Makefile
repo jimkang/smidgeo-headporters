@@ -64,5 +64,5 @@ run-watching-very-closely:
 	docker run --rm \
 		-v $(HOMEDIR)/configs/watching-very-closely:/usr/src/app/config \
 		-v $(HOMEDIR)/data/watching-very-closely:/usr/src/app/data \
-		jkang/watching-very-closely
+		jkang/watching-very-closely \
 		make run
