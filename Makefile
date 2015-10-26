@@ -63,6 +63,6 @@ run-attnbot-bible:
 run-watching-very-closely:
 	docker run --rm \
 		-v $(HOMEDIR)/configs/watching-very-closely:/usr/src/app/config \
-		jkang/watching-very-closely \
-		-v $(HOMEDIR)/data/watching-very-closely:/usr/src/app/data
+		-v $(HOMEDIR)/data/watching-very-closely:/usr/src/app/data \
+		jkang/watching-very-closely
 		make run
