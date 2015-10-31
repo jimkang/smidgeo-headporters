@@ -65,3 +65,8 @@ run-watching-very-closely:
 		-v $(HOMEDIR)/configs/watching-very-closely:/usr/src/app/config \
 		-v $(HOMEDIR)/data/watching-very-closely:/usr/src/app/data \
 		jkang/watching-very-closely make run
+
+run-rapgame:
+	docker run --rm \
+		-v $(HOMEDIR)/configs/rapgamemetaphor:/usr/src/app/config \
+		jkang/rapgamemetaphor make run

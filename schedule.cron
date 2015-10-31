@@ -8,3 +8,7 @@
 
 # watching-very-closely
 15 */3 * * * cd /var/apps/smidgeo-headporters && make run-watching-very-closely
+
+# rapgamemetaphor
+7 * * * * cd /var/apps/smidgeo-headporters && make run-rapgame
+
