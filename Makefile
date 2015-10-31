@@ -23,13 +23,16 @@ post-receive: sync-worktree-to-git install-cron update-images start-servers
 
 start-servers: run-attnbot-note-taker
 
-update-images: update-attnbot update-watching-very-closely
+update-images: update-attnbot update-watching-very-closely update-rapgamemetaphor
 
 update-attnbot:
 	docker pull jkang/attnbot
 
 update-watching-very-closely:
 	docker pull jkang/watching-very-closely
+
+update-rapgamemetaphor:
+	docker pull jkang/rapgamemetaphor
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
