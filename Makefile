@@ -88,5 +88,5 @@ run-ngram-seance:
 		--restart=always \
 		--name ngram-seance \
 		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
-		-v $(HOMEDIR)/data/ngram-seance:/usr/src/app/data \		
+		-v $(HOMEDIR)/data/ngram-seance:/usr/src/app/data \
 		jkang/ngram-seance
