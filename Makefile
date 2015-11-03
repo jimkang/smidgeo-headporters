@@ -21,9 +21,13 @@ install-cron:
 
 post-receive: sync-worktree-to-git install-cron update-images start-servers
 
-start-servers: run-attnbot-note-taker
+start-servers: run-attnbot-note-taker run-ngram-seance
 
-update-images: update-attnbot update-watching-very-closely update-rapgamemetaphor
+update-images: \
+	update-attnbot \
+	update-watching-very-closely \
+	update-rapgamemetaphor \
+	update-ngram-seance
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -33,6 +37,9 @@ update-watching-very-closely:
 
 update-rapgamemetaphor:
 	docker pull jkang/rapgamemetaphor
+
+update-ngram-seance:
+	docker pull jkang/ngram-seance
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -73,3 +80,13 @@ run-rapgame:
 	docker run --rm \
 		-v $(HOMEDIR)/configs/rapgamemetaphor:/usr/src/app/config \
 		jkang/rapgamemetaphor make run
+
+run-ngram-seance:
+	docker rm -f ngram-seance || echo "ngram-seance did not need removal."
+	docker run \
+		-d \
+		--restart=always \
+		--name ngram-seance \
+		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
+		-v $(HOMEDIR)/data/ngram-seance:/usr/src/app/data \		
+		jkang/ngram-seance
