@@ -12,3 +12,5 @@
 # rapgamemetaphor
 7 * * * * cd /var/apps/smidgeo-headporters && make run-rapgame
 
+# ngram-seance
+0 3,8,13,18,23 * * * cd /var/apps/smidgeo-headporters && make run-ngram-seance-followback

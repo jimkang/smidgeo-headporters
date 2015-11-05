@@ -90,3 +90,7 @@ run-ngram-seance:
 		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
 		-v $(HOMEDIR)/data/ngram-seance:/usr/src/app/data \
 		jkang/ngram-seance
+
+run-ngram-seance-followback:
+	-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
+		jkang/ngram-seance make followback
