@@ -92,5 +92,6 @@ run-ngram-seance:
 		jkang/ngram-seance
 
 run-ngram-seance-followback:
-	-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
+	docker run \
+		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
 		jkang/ngram-seance make followback
