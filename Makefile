@@ -95,3 +95,8 @@ run-ngram-seance-followback:
 	docker run \
 		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
 		jkang/ngram-seance make followback
+
+run-ngram-seance-tweet-unprompted:
+	docker run \
+		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
+		jkang/ngram-seance make tweet-unprompted
