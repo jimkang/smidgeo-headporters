@@ -41,6 +41,9 @@ update-rapgamemetaphor:
 update-ngram-seance:
 	docker pull jkang/ngram-seance
 
+update-matchupbot:
+	docker pull jkang/matchupbot
+
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
 
@@ -100,3 +103,7 @@ run-ngram-seance-tweet-unprompted:
 	docker run \
 		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
 		jkang/ngram-seance make tweet-unprompted
+
+run-matchupbot:
+	docker run -v $(HOMEDIR)/config:/usr/src/app/config \
+		jkang/matchupbot make run
