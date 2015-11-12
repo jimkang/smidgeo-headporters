@@ -106,5 +106,5 @@ run-ngram-seance-tweet-unprompted:
 		jkang/ngram-seance make tweet-unprompted
 
 run-matchupbot:
-	docker run -v $(HOMEDIR)/config:/usr/src/app/config \
+	docker run -v $(HOMEDIR)/configs/matchupbot:/usr/src/app/config \
 		jkang/matchupbot make run
