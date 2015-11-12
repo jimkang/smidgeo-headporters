@@ -27,7 +27,8 @@ update-images: \
 	update-attnbot \
 	update-watching-very-closely \
 	update-rapgamemetaphor \
-	update-ngram-seance
+	update-ngram-seance \
+	update-matchupbot
 
 update-attnbot:
 	docker pull jkang/attnbot
