@@ -1,16 +1,16 @@
 # attnbot stuff
 # 8 */4 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-quote
-# 38 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-fact
+38 * * * * cd /var/apps/smidgeo-headporters && make run-attnbot-fact
 # 0 16,19,22 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-popular
 # 0 */8 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-news
 0 */6 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-shakespeare
 38 */3 * * * cd /var/apps/smidgeo-headporters && make run-attnbot-bible
 
 # watching-very-closely
-# 15 */3 * * * cd /var/apps/smidgeo-headporters && make run-watching-very-closely
+15 */3 * * * cd /var/apps/smidgeo-headporters && make run-watching-very-closely
 
 # rapgamemetaphor
-# 7 * * * * cd /var/apps/smidgeo-headporters && make run-rapgame
+7 * * * * cd /var/apps/smidgeo-headporters && make run-rapgame
 
 # ngram-seance
 0 3,8,13,18,23 * * * cd /var/apps/smidgeo-headporters && make run-ngram-seance-followback
