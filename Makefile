@@ -28,7 +28,8 @@ update-images: \
 	update-watching-very-closely \
 	update-rapgamemetaphor \
 	update-ngram-seance \
-	update-matchupbot
+	update-matchupbot \
+	update-contingencybot
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -44,6 +45,9 @@ update-ngram-seance:
 
 update-matchupbot:
 	docker pull jkang/matchupbot
+
+update-contingencybot:
+	docker pull jkang/if-you-are-reading-this
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -108,3 +112,7 @@ run-ngram-seance-tweet-unprompted:
 run-matchupbot:
 	docker run -v $(HOMEDIR)/configs/matchupbot:/usr/src/app/config \
 		jkang/matchupbot make run
+
+run-contingencybot:
+	docker run -v $(HOMEDIR)/configs/if-you-are-reading-this:/usr/src/app/config \
+		jkang/if-you-are-reading-this make run
