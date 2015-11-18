@@ -21,7 +21,7 @@ install-cron:
 
 post-receive: sync-worktree-to-git install-cron update-images start-servers
 
-start-servers: run-attnbot-note-taker run-ngram-seance
+start-servers: run-attnbot-note-taker run-ngram-seance run-file-grab-webhook
 
 update-images: \
 	update-attnbot \
@@ -29,7 +29,8 @@ update-images: \
 	update-rapgamemetaphor \
 	update-ngram-seance \
 	update-matchupbot \
-	update-contingencybot
+	update-contingencybot \
+	update-file-grab-webhook
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -48,6 +49,9 @@ update-matchupbot:
 
 update-contingencybot:
 	docker pull jkang/if-you-are-reading-this
+
+update-file-grab-webhook:
+	docker pull jkang/update-file-grab-webhook
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -115,4 +119,16 @@ run-matchupbot:
 
 run-contingencybot:
 	docker run -v $(HOMEDIR)/configs/if-you-are-reading-this:/usr/src/app/config \
+		-v $(HOMEDIR)/data/if-you-are-reading-this:/usr/src/app/data \
 		jkang/if-you-are-reading-this make run
+
+run-file-grab-webhook:
+	docker rm -f file-grab-webhook || echo "file-grab-webhook did not need removal."
+	docker run \
+		-d \
+		--restart=always \
+		--name file-grab-webhook \
+		-v $(HOMEDIR)/configs/file-grab-webhook:/usr/src/app/config \
+		-v $(HOMEDIR)/data/if-you-are-reading-this:/usr/src/app/data \
+		-p 3489:3489 \
+		jkang/file-grab-webhook
