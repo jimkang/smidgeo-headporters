@@ -51,7 +51,7 @@ update-contingencybot:
 	docker pull jkang/if-you-are-reading-this
 
 update-file-grab-webhook:
-	docker pull jkang/update-file-grab-webhook
+	docker pull jkang/file-grab-webhook
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
