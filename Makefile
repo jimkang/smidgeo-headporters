@@ -30,7 +30,8 @@ update-images: \
 	update-ngram-seance \
 	update-matchupbot \
 	update-contingencybot \
-	update-file-grab-webhook
+	update-file-grab-webhook \
+	update-fact-bots
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -52,6 +53,9 @@ update-contingencybot:
 
 update-file-grab-webhook:
 	docker pull jkang/file-grab-webhook
+
+update-fact-bots:
+	docker pull jkang/fact-bots
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -132,3 +136,7 @@ run-file-grab-webhook:
 		-v $(HOMEDIR)/data/if-you-are-reading-this:/usr/src/app/data \
 		-p 3489:3489 \
 		jkang/file-grab-webhook
+
+run-fact-bots:
+	docker run -v $(HOMEDIR)/configs/fact-bots:/usr/src/app/config \
+		jkang/fact-bots make run

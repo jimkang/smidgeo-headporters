@@ -21,3 +21,6 @@
 
 # contingencybot
 45 */2 * * * cd /var/apps/smidgeo-headporters && make run-contingencybot
+
+# fact-bots
+35 * * * * cd /var/apps/smidgeo-headporters && make run-fact-bots
