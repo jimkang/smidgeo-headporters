@@ -21,7 +21,11 @@ install-cron:
 
 post-receive: sync-worktree-to-git install-cron update-images start-servers
 
-start-servers: run-attnbot-note-taker run-ngram-seance run-file-grab-webhook
+start-servers: \
+	run-attnbot-note-taker \
+	run-ngram-seance \
+	run-file-grab-webhook \
+	run-namedlevels-api
 
 update-images: \
 	update-attnbot \
@@ -31,7 +35,8 @@ update-images: \
 	update-matchupbot \
 	update-contingencybot \
 	update-file-grab-webhook \
-	update-fact-bots
+	update-fact-bots \
+	update-namedlevels-api
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -56,6 +61,9 @@ update-file-grab-webhook:
 
 update-fact-bots:
 	docker pull jkang/fact-bots
+
+update-namedlevels-api:
+	docker pull jkang/namedlevels-api
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -140,3 +148,16 @@ run-file-grab-webhook:
 run-fact-bots:
 	docker run -v $(HOMEDIR)/configs/fact-bots:/usr/src/app/config \
 		jkang/fact-bots make run
+
+run-namedlevels-api:
+	docker rm -f namedlevels-api || \
+		echo "namedlevels-api did not need removal."
+	docker run \
+		-d \
+		--restart=always \
+		--name namedlevels-api \
+		-v $(HOMEDIR)/configs/namedlevels-api:/usr/src/app/config \
+		-v $(HOMEDIR)/data/namedlevels-api:/usr/src/app/data \
+		-p 8080:8080 \
+		jkang/namedlevels-api \
+		node namedlevels-api.js
