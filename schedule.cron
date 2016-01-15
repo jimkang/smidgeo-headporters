@@ -24,3 +24,7 @@
 
 # fact-bots
 35 * * * * cd /var/apps/smidgeo-headporters && make run-fact-bots
+
+# circlejams
+15 * * * * cd /var/apps/smidgeo-headporters && make run-circlejams
+30 * * * * cd /var/apps/smidgeo-headporters && make run-circlejams-followback
