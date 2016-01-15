@@ -27,4 +27,4 @@
 
 # circlejams
 15 * * * * cd /var/apps/smidgeo-headporters && make run-circlejams
-30 * * * * cd /var/apps/smidgeo-headporters && make run-circlejams-followback
+30 */2 * * * cd /var/apps/smidgeo-headporters && make run-circlejams-followback
