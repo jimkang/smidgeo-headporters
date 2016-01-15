@@ -36,7 +36,8 @@ update-images: \
 	update-contingencybot \
 	update-file-grab-webhook \
 	update-fact-bots \
-	update-namedlevels-api
+	update-namedlevels-api \
+	update-circlejams
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -64,6 +65,9 @@ update-fact-bots:
 
 update-namedlevels-api:
 	docker pull jkang/namedlevels-api
+
+update-circlejams:
+	docker pull jkang/circlejams
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -161,3 +165,12 @@ run-namedlevels-api:
 		-p 8080:8080 \
 		jkang/namedlevels-api \
 		node namedlevels-api.js
+
+run-circlejams:
+	docker run -v $(HOMEDIR)/configs/circlejams:/usr/src/app/config \
+		jkang/circlejams node post-verse.js
+
+run-circlejams-followback:
+	docker run \
+		-v $(HOMEDIR)/configs/circlejams:/usr/src/app/config \
+		jkang/circlejams make followback
