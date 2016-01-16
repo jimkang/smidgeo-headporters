@@ -168,6 +168,7 @@ run-namedlevels-api:
 
 run-circlejams:
 	docker run -v $(HOMEDIR)/configs/circlejams:/usr/src/app/config \
+		-v $(HOMEDIR)/data/circlejams:/usr/src/app/data \		
 		jkang/circlejams node post-verse.js
 
 run-circlejams-followback:
