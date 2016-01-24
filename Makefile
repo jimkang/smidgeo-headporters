@@ -175,3 +175,8 @@ run-circlejams-followback:
 	docker run \
 		-v $(HOMEDIR)/configs/circlejams:/usr/src/app/config \
 		jkang/circlejams make followback
+
+# USAGE: $ NAME=your-project-name make create-directories
+create-directories:
+	mkdir /var/apps/smidgeo-headporters/configs/$(NAME) && \
+		mkdir /var/apps/smidgeo-headporters/data/$(NAME)
