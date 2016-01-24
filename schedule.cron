@@ -28,3 +28,10 @@
 # circlejams
 15 * * * * cd /var/apps/smidgeo-headporters && make run-circlejams
 30 */2 * * * cd /var/apps/smidgeo-headporters && make run-circlejams-followback
+
+# circlejams
+15 * * * * cd /var/apps/smidgeo-headporters && make run-circlejams
+30 */2 * * * cd /var/apps/smidgeo-headporters && make run-circlejams-followback
+
+# a-tyranny-of-words
+5 14,20 * * * cd /var/www/a-tyranny-of-words && make run
