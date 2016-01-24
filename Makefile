@@ -37,7 +37,8 @@ update-images: \
 	update-file-grab-webhook \
 	update-fact-bots \
 	update-namedlevels-api \
-	update-circlejams
+	update-circlejams \
+	update-a-tyranny-of-words
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -68,6 +69,9 @@ update-namedlevels-api:
 
 update-circlejams:
 	docker pull jkang/circlejams
+
+update-a-tyranny-of-words:
+	docker pull jkang/a-tyranny-of-words
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -175,6 +179,11 @@ run-circlejams-followback:
 	docker run \
 		-v $(HOMEDIR)/configs/circlejams:/usr/src/app/config \
 		jkang/circlejams make followback
+
+run-a-tyranny-of-words:
+	docker run -v $(HOMEDIR)/configs/a-tyranny-of-words:/usr/src/app/config \
+		-v $(HOMEDIR)/data/a-tyranny-of-words:/usr/src/app/data \
+		jkang/a-tyranny-of-words node post-collective-noun.js
 
 # USAGE: $ NAME=your-project-name make create-directories
 create-directories:
