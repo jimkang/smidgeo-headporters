@@ -25,7 +25,8 @@ start-servers: \
 	run-attnbot-note-taker \
 	run-ngram-seance \
 	run-file-grab-webhook \
-	run-namedlevels-api
+	run-namedlevels-api \
+	run-kilwala
 
 update-images: \
 	update-attnbot \
@@ -38,7 +39,8 @@ update-images: \
 	update-fact-bots \
 	update-namedlevels-api \
 	update-circlejams \
-	update-a-tyranny-of-words
+	update-a-tyranny-of-words \
+	update-kilwala
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -72,6 +74,9 @@ update-circlejams:
 
 update-a-tyranny-of-words:
 	docker pull jkang/a-tyranny-of-words
+
+update-kilwala:
+	docker pull jkang/kilwala
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -184,6 +189,18 @@ run-a-tyranny-of-words:
 	docker run -v $(HOMEDIR)/configs/a-tyranny-of-words:/usr/src/app/config \
 		-v $(HOMEDIR)/data/a-tyranny-of-words:/usr/src/app/data \
 		jkang/a-tyranny-of-words node post-collective-noun.js
+
+run-kilwala:
+	docker rm -f kilwala || \
+		echo "kilwala did not need removal."
+	docker run \
+		-d \
+		--restart=always \
+		--name kilwala \
+		-v $(HOMEDIR)/configs/kilwala:/usr/src/app/config \
+		-v $(HOMEDIR)/data/kilwala:/usr/src/app/data \
+		jkang/kilwala \
+		node kilwala-responder.js
 
 # USAGE: $ NAME=your-project-name make create-directories
 create-directories:
