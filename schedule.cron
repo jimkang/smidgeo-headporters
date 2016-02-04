@@ -35,3 +35,6 @@
 
 # a-tyranny-of-words
 5 14,20 * * * cd /var/apps/smidgeo-headporters && make run-a-tyranny-of-words
+
+# aw-yea-bot
+15 */3 * * * cd /var/apps/smidgeo-headporters && make run-aw-yea-bot

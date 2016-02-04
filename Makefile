@@ -26,7 +26,8 @@ start-servers: \
 	run-ngram-seance \
 	run-file-grab-webhook \
 	run-namedlevels-api \
-	run-kilwala
+	run-kilwala \
+	run-aw-yea-bot-responder
 
 update-images: \
 	update-attnbot \
@@ -40,7 +41,8 @@ update-images: \
 	update-namedlevels-api \
 	update-circlejams \
 	update-a-tyranny-of-words \
-	update-kilwala
+	update-kilwala \
+	update-aw-yea-bot
 
 update-attnbot:
 	docker pull jkang/attnbot
@@ -77,6 +79,9 @@ update-a-tyranny-of-words:
 
 update-kilwala:
 	docker pull jkang/kilwala
+
+update-aw-yea-bot:
+	docker pull jkang/aw-yea-bot
 
 ATTNBOTBASECMD = docker run --rm \
 	-v $(HOMEDIR)/configs/attnbot:/usr/src/app/config jkang/attnbot
@@ -201,6 +206,24 @@ run-kilwala:
 		-v $(HOMEDIR)/data/kilwala:/usr/src/app/data \
 		jkang/kilwala \
 		node kilwala-responder.js
+
+run-aw-yea-bot-responder:
+	docker rm -f aw-yea-bot-responder || \
+		echo "aw-yea-bot-responder did not need removal."
+	docker run \
+		-d \
+		--restart=always \
+		--name aw-yea-bot-responder \
+		-v $(HOMEDIR)/configs/aw-yea-bot:/usr/src/app/config \
+		-v $(HOMEDIR)/data/aw-yea-bot:/usr/src/app/data \
+		jkang/aw-yea-bot \
+		node aw-yea-responder.js
+
+run-aw-yea-bot:
+	docker run -v $(HOMEDIR)/configs/aw-yea-bot:/usr/src/app/config \
+		-v $(HOMEDIR)/data/aw-yea-bot:/usr/src/app/data \
+		jkang/aw-yea-bot node aw-yea-post.js
+
 
 # USAGE: $ NAME=your-project-name make create-directories
 create-directories:
