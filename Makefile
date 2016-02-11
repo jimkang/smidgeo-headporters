@@ -22,8 +22,8 @@ install-cron:
 post-receive: sync-worktree-to-git install-cron update-images start-servers
 
 start-servers: \
-	run-ngram-seance \
-	run-file-grab-webhook \
+	# run-ngram-seance \
+	# run-file-grab-webhook \
 	run-namedlevels-api \
 	run-kilwala \
 	run-aw-yea-bot-responder
@@ -31,10 +31,10 @@ start-servers: \
 update-images: \
 	update-watching-very-closely \
 	update-rapgamemetaphor \
-	update-ngram-seance \
+	# update-ngram-seance \
 	update-matchupbot \
 	update-contingencybot \
-	update-file-grab-webhook \
+	# update-file-grab-webhook \
 	update-fact-bots \
 	update-namedlevels-api \
 	update-circlejams \
@@ -48,8 +48,8 @@ update-watching-very-closely:
 update-rapgamemetaphor:
 	docker pull jkang/rapgamemetaphor
 
-update-ngram-seance:
-	docker pull jkang/ngram-seance
+# update-ngram-seance:
+# 	docker pull jkang/ngram-seance
 
 update-matchupbot:
 	docker pull jkang/matchupbot
@@ -57,8 +57,8 @@ update-matchupbot:
 update-contingencybot:
 	docker pull jkang/if-you-are-reading-this
 
-update-file-grab-webhook:
-	docker pull jkang/file-grab-webhook
+# update-file-grab-webhook:
+# 	docker pull jkang/file-grab-webhook
 
 update-fact-bots:
 	docker pull jkang/fact-bots
@@ -89,25 +89,25 @@ run-rapgame:
 		-v $(HOMEDIR)/configs/rapgamemetaphor:/usr/src/app/config \
 		jkang/rapgamemetaphor make run
 
-run-ngram-seance:
-	docker rm -f ngram-seance || echo "ngram-seance did not need removal."
-	docker run \
-		-d \
-		--restart=always \
-		--name ngram-seance \
-		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
-		-v $(HOMEDIR)/data/ngram-seance:/usr/src/app/data \
-		jkang/ngram-seance
+# run-ngram-seance:
+# 	docker rm -f ngram-seance || echo "ngram-seance did not need removal."
+# 	docker run \
+# 		-d \
+# 		--restart=always \
+# 		--name ngram-seance \
+# 		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
+# 		-v $(HOMEDIR)/data/ngram-seance:/usr/src/app/data \
+# 		jkang/ngram-seance
 
-run-ngram-seance-followback:
-	docker run \
-		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
-		jkang/ngram-seance make followback
+# run-ngram-seance-followback:
+# 	docker run \
+# 		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
+# 		jkang/ngram-seance make followback
 
-run-ngram-seance-tweet-unprompted:
-	docker run \
-		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
-		jkang/ngram-seance make tweet-unprompted
+# run-ngram-seance-tweet-unprompted:
+# 	docker run \
+# 		-v $(HOMEDIR)/configs/ngram-seance:/usr/src/app/config \
+# 		jkang/ngram-seance make tweet-unprompted
 
 run-matchupbot:
 	docker run -v $(HOMEDIR)/configs/matchupbot:/usr/src/app/config \
@@ -118,16 +118,16 @@ run-contingencybot:
 		-v $(HOMEDIR)/data/if-you-are-reading-this:/usr/src/app/data \
 		jkang/if-you-are-reading-this make run
 
-run-file-grab-webhook:
-	docker rm -f file-grab-webhook || echo "file-grab-webhook did not need removal."
-	docker run \
-		-d \
-		--restart=always \
-		--name file-grab-webhook \
-		-v $(HOMEDIR)/configs/file-grab-webhook:/usr/src/app/config \
-		-v $(HOMEDIR)/data/if-you-are-reading-this:/usr/src/app/data \
-		-p 3489:3489 \
-		jkang/file-grab-webhook
+# run-file-grab-webhook:
+# 	docker rm -f file-grab-webhook || echo "file-grab-webhook did not need removal."
+# 	docker run \
+# 		-d \
+# 		--restart=always \
+# 		--name file-grab-webhook \
+# 		-v $(HOMEDIR)/configs/file-grab-webhook:/usr/src/app/config \
+# 		-v $(HOMEDIR)/data/if-you-are-reading-this:/usr/src/app/data \
+# 		-p 3489:3489 \
+# 		jkang/file-grab-webhook
 
 run-fact-bots:
 	docker run -v $(HOMEDIR)/configs/fact-bots:/usr/src/app/config \
