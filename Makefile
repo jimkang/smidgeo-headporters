@@ -22,25 +22,26 @@ install-cron:
 post-receive: sync-worktree-to-git install-cron update-images start-servers
 
 start-servers: \
-	# run-ngram-seance \
-	# run-file-grab-webhook \
 	run-namedlevels-api \
 	run-kilwala \
 	run-aw-yea-bot-responder
+	# run-ngram-seance \
+	# run-file-grab-webhook \
 
 update-images: \
 	update-watching-very-closely \
 	update-rapgamemetaphor \
-	# update-ngram-seance \
 	update-matchupbot \
 	update-contingencybot \
-	# update-file-grab-webhook \
 	update-fact-bots \
 	update-namedlevels-api \
 	update-circlejams \
 	update-a-tyranny-of-words \
 	update-kilwala \
-	update-aw-yea-bot
+	update-aw-yea-bot \
+	update-daycare-provider-api
+	# update-ngram-seance \
+	# update-file-grab-webhook \
 
 update-watching-very-closely:
 	docker pull jkang/watching-very-closely
@@ -77,6 +78,9 @@ update-kilwala:
 
 update-aw-yea-bot:
 	docker pull jkang/aw-yea-bot
+
+update-aw-yea-bot:
+	docker pull jkang/daycare-provider-api
 
 run-watching-very-closely:
 	docker run --rm \
@@ -190,6 +194,18 @@ run-aw-yea-bot:
 		-v $(HOMEDIR)/data/aw-yea-bot:/usr/src/app/data \
 		jkang/aw-yea-bot node aw-yea-post.js
 
+run-daycare-provider-api:
+	docker rm -f daycare-provider-api || \
+		echo "daycare-provider-api did not need removal."
+	docker run \
+		-d \
+		--restart=always \
+		--name daycare-provider-api \
+		-v $(HOMEDIR)/data/daycare-provider-api:/usr/src/app/data \
+		-p 4999:4999 \
+		jkang/daycare-provider-api \
+		node daycare-provider-api.js
+#		-v $(HOMEDIR)/configs/daycare-provider-api:/usr/src/app/config \
 
 # USAGE: $ NAME=your-project-name make create-directories
 create-directories:
