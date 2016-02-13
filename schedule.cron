@@ -1,32 +1,32 @@
 # watching-very-closely
-15 */3 * * * cd /var/apps/smidgeo-headporters && make run-watching-very-closely
+15 */3 * * * cd /var/apps/smh && make run-watching-very-closely
 
 # rapgamemetaphor
-7 * * * * cd /var/apps/smidgeo-headporters && make run-rapgame
+7 * * * * cd /var/apps/smh && make run-rapgame
 
 # ngram-seance
-# 0 3,8,13,18,23 * * * cd /var/apps/smidgeo-headporters && make run-ngram-seance-followback
-# 35 1,4,7,10,13,16,19,22 * * * cd /var/apps/smidgeo-headporters && make run-ngram-seance-tweet-unprompted
+# 0 3,8,13,18,23 * * * cd /var/apps/smh && make run-ngram-seance-followback
+# 35 1,4,7,10,13,16,19,22 * * * cd /var/apps/smh && make run-ngram-seance-tweet-unprompted
 
 # matchupbot
-40 3,8,13,18,23 * * * cd /var/apps/smidgeo-headporters && make run-matchupbot
+40 3,8,13,18,23 * * * cd /var/apps/smh && make run-matchupbot
 
 # contingencybot
-45 */2 * * * cd /var/apps/smidgeo-headporters && make run-contingencybot
+45 */2 * * * cd /var/apps/smh && make run-contingencybot
 
 # fact-bots
-35 * * * * cd /var/apps/smidgeo-headporters && make run-fact-bots
+35 * * * * cd /var/apps/smh && make run-fact-bots
 
 # circlejams
-15 * * * * cd /var/apps/smidgeo-headporters && make run-circlejams
-30 */2 * * * cd /var/apps/smidgeo-headporters && make run-circlejams-followback
+15 * * * * cd /var/apps/smh && make run-circlejams
+30 */2 * * * cd /var/apps/smh && make run-circlejams-followback
 
 # circlejams
-15 * * * * cd /var/apps/smidgeo-headporters && make run-circlejams
-30 */2 * * * cd /var/apps/smidgeo-headporters && make run-circlejams-followback
+15 * * * * cd /var/apps/smh && make run-circlejams
+30 */2 * * * cd /var/apps/smh && make run-circlejams-followback
 
 # a-tyranny-of-words
-5 14,20 * * * cd /var/apps/smidgeo-headporters && make run-a-tyranny-of-words
+5 14,20 * * * cd /var/apps/smh && make run-a-tyranny-of-words
 
 # aw-yea-bot
-15 */3 * * * cd /var/apps/smidgeo-headporters && make run-aw-yea-bot
+15 */3 * * * cd /var/apps/smh && make run-aw-yea-bot

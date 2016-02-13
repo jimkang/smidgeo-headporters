@@ -1,11 +1,7 @@
 HOMEDIR = $(shell pwd)
-GITDIR = /var/repos/smidgeo-headporters.git
 
 pushall:
 	git push origin master && git push server master
-
-sync-worktree-to-git:
-	git --work-tree=$(HOMEDIR) --git-dir=$(GITDIR) checkout -f
 
 start-docker-machine:
 	docker-machine create --driver virtualbox dev
@@ -19,12 +15,13 @@ push-base-image:
 install-cron:
 	crontab schedule.cron
 
-post-receive: sync-worktree-to-git install-cron update-images start-servers
+update-all: install-cron update-images start-servers
 
 start-servers: \
 	run-namedlevels-api \
 	run-kilwala \
-	run-aw-yea-bot-responder
+	run-aw-yea-bot-responder \
+	run-daycare-provider-api
 	# run-ngram-seance \
 	# run-file-grab-webhook \
 
@@ -79,7 +76,7 @@ update-kilwala:
 update-aw-yea-bot:
 	docker pull jkang/aw-yea-bot
 
-update-aw-yea-bot:
+update-daycare-provider-api:
 	docker pull jkang/daycare-provider-api
 
 run-watching-very-closely:
@@ -209,5 +206,11 @@ run-daycare-provider-api:
 
 # USAGE: $ NAME=your-project-name make create-directories
 create-directories:
-	mkdir /var/apps/smidgeo-headporters/configs/$(NAME) && \
-		mkdir /var/apps/smidgeo-headporters/data/$(NAME)
+	mkdir /var/apps/smh/configs/$(NAME) && \
+		mkdir /var/apps/smh/data/$(NAME)
+
+sync:
+	rsync -a $(HOMEDIR) $(SMUSER)@smidgeo-headporters:/var/apps/
+
+remote-update-all:
+	ssh $(SMUSER)@smidgeo-headporters "cd /var/apps/smh && make update-all"
