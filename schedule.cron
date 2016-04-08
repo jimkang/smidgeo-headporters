@@ -12,10 +12,10 @@
 40 3,8,13,18,23 * * * cd /var/apps/smh && make run-matchupbot
 
 # contingencybot
-45 */2 * * * cd /var/apps/smh && make run-contingencybot
+45 */3 * * * cd /var/apps/if-you-are-reading-this && make run
 
 # fact-bots
-35 * * * * cd /var/apps/smh && make run-fact-bots
+35 */4 * * * cd /var/apps/smh && make run-fact-bots
 
 # circlejams
 15 * * * * cd /var/apps/smh && make run-circlejams
