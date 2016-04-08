@@ -1,7 +1,7 @@
 HOMEDIR = $(shell pwd)
 
 pushall:
-	git push origin master && git push server master
+	git push origin master && sync
 
 start-docker-machine:
 	docker-machine create --driver virtualbox dev
@@ -211,6 +211,7 @@ create-directories:
 
 sync:
 	rsync -a $(HOMEDIR) $(SMUSER)@smidgeo-headporters:/var/apps/
+	ssh $(SMUSER)@smidgeo-headporters "cd /var/apps/smh && make install-cron"
 
 remote-update-all:
 	ssh $(SMUSER)@smidgeo-headporters "cd /var/apps/smh && make update-all"
