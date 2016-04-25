@@ -1,35 +1,31 @@
 # watching-very-closely
-15 */3 * * * cd /var/apps/smh && make run-watching-very-closely
+# 15 */3 * * * cd /var/apps/smh && make run-watching-very-closely
 
 # rapgamemetaphor
-7 * * * * cd /var/apps/smh && make run-rapgame
+7 * * * * cd /var/apps/rapgamemetaphor && make run-rapgame
 
 # ngram-seance
 # 0 3,8,13,18,23 * * * cd /var/apps/smh && make run-ngram-seance-followback
 # 35 1,4,7,10,13,16,19,22 * * * cd /var/apps/smh && make run-ngram-seance-tweet-unprompted
 
 # matchupbot
-40 3,8,13,18,23 * * * cd /var/apps/smh && make run-matchupbot
+40 3,8,13,18,23 * * * cd /var/apps/matchupbot && make run-matchupbot
 
 # contingencybot
 45 */3 * * * cd /var/apps/if-you-are-reading-this && make run
 
 # fact-bots
-35 */4 * * * cd /var/apps/smh && make run-fact-bots
+# 35 */4 * * * cd /var/apps/smh && make run-fact-bots
 
 # circlejams
-15 * * * * cd /var/apps/smh && make run-circlejams
-30 */2 * * * cd /var/apps/smh && make run-circlejams-followback
-
-# circlejams
-15 * * * * cd /var/apps/smh && make run-circlejams
-30 */2 * * * cd /var/apps/smh && make run-circlejams-followback
+15 * * * * cd /var/apps/circlejams && make run-circlejams
+30 */2 * * * cd /var/apps/circlejams && make run-circlejams-followback
 
 # a-tyranny-of-words
-5 14,20 * * * cd /var/apps/smh && make run-a-tyranny-of-words
+5 14,20 * * * cd /var/apps/a-tyranny-of-words && post-collective-noun.js
 
 # aw-yea-bot
-15 */3 * * * cd /var/apps/smh && make run-aw-yea-bot
+15 */3 * * * cd /var/apps/aw-yea-bot && node aw-yea-post.js
 
 # claps
 15 */3 * * * cd /var/apps/claps && node claps-post.js
