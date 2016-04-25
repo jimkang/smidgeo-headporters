@@ -18,8 +18,8 @@
 # 35 */4 * * * cd /var/apps/smh && make run-fact-bots
 
 # circlejams
-15 * * * * cd /var/apps/circlejams && make run-circlejams
-30 */2 * * * cd /var/apps/circlejams && make run-circlejams-followback
+15 * * * * cd /var/apps/circlejams && node post-verse.js
+30 */2 * * * cd /var/apps/circlejams && node followback.js
 
 # a-tyranny-of-words
 5 14,20 * * * cd /var/apps/a-tyranny-of-words && post-collective-noun.js
