@@ -2,7 +2,7 @@
 # 15 */3 * * * cd /var/apps/smh && make run-watching-very-closely
 
 # rapgamemetaphor
-7 * * * * cd /var/apps/rapgamemetaphor && make run-rapgame
+7 * * * * cd /var/apps/smh && make run-rapgame
 
 # ngram-seance
 # 0 3,8,13,18,23 * * * cd /var/apps/smh && make run-ngram-seance-followback

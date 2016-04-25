@@ -1,7 +1,7 @@
 HOMEDIR = $(shell pwd)
 
-pushall:
-	git push origin master && sync
+pushall: sync remote-update-all
+	git push origin master
 
 start-docker-machine:
 	docker-machine create --driver virtualbox dev
