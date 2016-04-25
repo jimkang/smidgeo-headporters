@@ -24,6 +24,9 @@ start-servers: \
 update-images: \
 	update-rapgamemetaphor
 
+update-rapgamemetaphor:
+	docker pull jkang/rapgamemetaphor
+
 run-rapgame:
 	docker run --rm \
 		-v $(HOMEDIR)/configs/rapgamemetaphor:/usr/src/app/config \
