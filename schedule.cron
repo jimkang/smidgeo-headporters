@@ -22,7 +22,7 @@
 30 */2 * * * cd /var/apps/circlejams && node followback.js
 
 # a-tyranny-of-words
-5 14,20 * * * cd /var/apps/a-tyranny-of-words && post-collective-noun.js
+5 14,20 * * * cd /var/apps/a-tyranny-of-words && node post-collective-noun.js
 
 # aw-yea-bot
 15 */3 * * * cd /var/apps/aw-yea-bot && node aw-yea-post.js
