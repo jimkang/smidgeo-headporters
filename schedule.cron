@@ -26,3 +26,6 @@
 
 # claps
 15 */3 * * * cd /var/apps/claps && node claps-post.js
+
+# linkfinds
+50 * * * * cd /var/apps/linkfinds && node linkfinds-post.js
