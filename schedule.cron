@@ -29,3 +29,6 @@
 
 # linkfinds
 20 */3 * * * cd /var/apps/linkfinds && node linkfinds-post.js
+
+# linkfinds trending
+0 */7 * * * cd /var/apps/linkfinds && node linkfinds-post.js --trending-source
