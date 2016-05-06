@@ -32,3 +32,6 @@
 
 # linkfinds trending
 0 */7 * * * cd /var/apps/linkfinds && node linkfinds-post.js --trending-source
+
+# linkfinds followback
+45 */2 * * * cd /var/apps/linkfinds && node followback.js
